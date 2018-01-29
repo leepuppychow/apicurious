@@ -18,8 +18,10 @@ class SessionController < ApplicationController
       user = User.find_or_create_by(uid: user_data["id"])
       user.username = user_data["login"]
       user.uid = user_data["id"]
+      user.name = user_data["name"]
       user.token = token
       user.save
+
       session[:user_id] = user.id
     end
 

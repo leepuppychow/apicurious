@@ -1,1 +1,30 @@
-<h1>Welcome <%= current_user.username %> </h1>
+<%= render partial: "header" %>
+
+<div class="main-page">
+  <div class="left-sidebar">
+    <img class="avatar-image" src=<%=@picture%> >
+    <h1><%= current_user.username %> </h1>
+    <h2><%= current_user.name %> </h2>
+    <%= link_to "Add a bio", root_path %>
+  </div>
+
+  <div class="right-panel">
+    <div class="flex-row">
+      <p>Overview</p>
+      <p>Repositories <%=@user_info["public_repos"]  %></p>
+      <p>Stars</p>
+      <p>Followers <%=@user_info["followers"]%></p>
+      <p>Following <%= @user_info["following"]%></p>
+    </div>
+    <hr>
+    <input class = "repo-search-bar" type="text" name="" value="Search repositories...">
+    <hr>
+      <% @user_repos.each do |repo| %>
+        <%= link_to repo["name"], "https://github.com/#{current_user.username}/#{repo["name"]}" %></br>
+        <%= repo["updated_at"] %></br>
+        <%= repo["language"] %>
+        <hr>
+      <% end %>
+  </div>
+</div>
+<%= render partial: "footer" %>
