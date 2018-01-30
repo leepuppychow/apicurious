@@ -6,7 +6,7 @@ class UserInfo
               :public_repos,
               :picture
 
-  def initialize(attributes={})
+  def initialize(attributes = {})
     @username = attributes["login"]
     @uid = attributes["id"]
     @followers = attributes["followers"]
@@ -15,7 +15,7 @@ class UserInfo
     @picture = attributes["avatar_url"]
   end
 
-  def number_of_starred_repos
-    JSON.parse(Faraday.get("https://api.github.com/users/#{@username}/starred").body).count
+  def starred_repos
+    JSON.parse(Faraday.get("https://api.github.com/users/#{@username}/starred").body)
   end
 end
