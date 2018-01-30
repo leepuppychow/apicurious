@@ -1,5 +1,4 @@
 <%= render partial: "header" %>
-
 <div class="main-page">
   <div class="left-sidebar">
     <img class="avatar-image" src=<%=@user_info.picture %> >
@@ -11,11 +10,11 @@
 
   <div class="right-panel">
     <div class="flex-row">
-      <p>Overview</p>
-      <p>Repositories <%=@user_info.public_repos  %></p>
-      <p>Stars <%= @user_info.number_of_starred_repos %></p>
-      <p>Followers <%=@user_info.followers%></p>
-      <p>Following <%= @user_info.following%></p>
+      <%= link_to "Overview", root_path, class: "right-panel-links"%>
+      <%= link_to "Repositories #{@user_info.public_repos}", root_path, class: "right-panel-links" %>
+      <%= link_to "Stars #{@user_info.starred_repos.count}", root_path, class: "right-panel-links" %>
+      <%= link_to "Followers #{@user_info.followers}", root_path, class: "right-panel-links" %>
+      <%= link_to "Following #{@user_info.following}", root_path, class: "right-panel-links" %>
     </div>
     <hr>
     <input class = "repo-search-bar" type="text" name="" value="Search repositories...">
