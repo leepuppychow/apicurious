@@ -1,4 +1,4 @@
-class UserRepos
+class GithubRepos
   attr_reader :repos
 
   def initialize(attributes)
