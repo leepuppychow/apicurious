@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.flex-row{
+  display: flex;
+  flex-flow: row wrap;
+  p{
+    margin-right: 30px;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.main-header {
+  height: 50px;
+  width: 100%;
+  background-color: #25292e;
+  color: #b7c1c8;
+  font-weight: bold;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.flex-row-header {
+  display: flex;
+  flex-flow: row wrap;
+  width: 75%;
+  justify-content: space-between;
+  .header-search-bar {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    background: #404448;
+    color: #b7c1c8;
+    font-size: 14px;
+    height: 30px;
+    margin-top: 9px;
+  }
+}
+
+.main-page{
+  margin-top: 15px;
+  margin-left: 200px;
+  margin-right: 200px;
+  display: flex;
+  flex-flow: row wrap;
+  .left-sidebar{
+    .avatar-image {
+      height:250px;
+      width:auto;
+      border-radius: 5%;
+    }
+  }
+
+  .right-panel {
+    width: 71%;
+    margin-left:20px;
+  }
+}
