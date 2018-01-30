@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
 
   def index
-    @user_repos = UserRepos.new(JSON.parse(user_repos))
-    @user_info = UserInfo.new(JSON.parse(user_info))
+    @user_repos = GithubRepos.new(JSON.parse(user_repos))
+    @user_info = GithubInfo.new(JSON.parse(user_info))
   end
   
   private
