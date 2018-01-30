@@ -2,27 +2,30 @@
 
 <div class="main-page">
   <div class="left-sidebar">
-    <img class="avatar-image" src=<%=@picture%> >
+    <img class="avatar-image" src=<%=@user_info.picture %> >
     <h1><%= current_user.username %> </h1>
     <h2><%= current_user.name %> </h2>
     <%= link_to "Add a bio", root_path %>
+    <hr>
   </div>
 
   <div class="right-panel">
     <div class="flex-row">
       <p>Overview</p>
-      <p>Repositories <%=@user_info["public_repos"]  %></p>
-      <p>Stars</p>
-      <p>Followers <%=@user_info["followers"]%></p>
-      <p>Following <%= @user_info["following"]%></p>
+      <p>Repositories <%=@user_info.public_repos  %></p>
+      <p>Stars <%= @user_info.number_of_starred_repos %></p>
+      <p>Followers <%=@user_info.followers%></p>
+      <p>Following <%= @user_info.following%></p>
     </div>
     <hr>
     <input class = "repo-search-bar" type="text" name="" value="Search repositories...">
     <hr>
-      <% @user_repos.each do |repo| %>
-        <%= link_to repo["name"], "https://github.com/#{current_user.username}/#{repo["name"]}" %></br>
-        <%= repo["updated_at"] %></br>
-        <%= repo["language"] %>
+      <% @user_repos.repos.each do |repo| %>
+        <div class="repo">
+          <div><%= link_to repo.name, "https://github.com/#{current_user.username}/#{repo.name}" , class: "name"%></div>
+          <div><%= repo.updated_at %></div>
+          <div class="language"><%= repo.language%> </div>
+        </div>
         <hr>
       <% end %>
   </div>
