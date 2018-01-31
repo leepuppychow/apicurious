@@ -12,7 +12,7 @@ describe GithubInfo do
     expect(github_info.public_repos).to eq 18
     expect(github_info.picture).to be_a String
     expect(github_info.starred_repos).to be_a Array
-    expect(github_info.starred_repos.count).to eq 0
+    expect(github_info.starred_repos.count).to eq 1
   end
 
 end
