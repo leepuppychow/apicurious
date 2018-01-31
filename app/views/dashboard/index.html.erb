@@ -1,7 +1,7 @@
 <%= render partial: "header" %>
 <div class="main-page">
   <div class="left-sidebar">
-    <img class="avatar-image" src=<%=@user_info.picture %> >
+    <img class="avatar-image" src=<%=@github_info.picture %> >
     <h1><%= current_user.username %> </h1>
     <h2><%= current_user.name %> </h2>
     <%= link_to "Add a bio", root_path %>
@@ -11,15 +11,15 @@
   <div class="right-panel">
     <div class="flex-row">
       <%= link_to "Overview", root_path, class: "right-panel-links"%>
-      <%= link_to "Repositories #{@user_info.public_repos}", root_path, class: "right-panel-links" %>
-      <%= link_to "Stars #{@user_info.starred_repos.count}", root_path, class: "right-panel-links" %>
-      <%= link_to "Followers #{@user_info.followers}", root_path, class: "right-panel-links" %>
-      <%= link_to "Following #{@user_info.following}", root_path, class: "right-panel-links" %>
+      <%= link_to "Repositories #{@github_info.public_repos}", root_path, class: "right-panel-links" %>
+      <%= link_to "Stars #{@github_info.starred_repos.count}", root_path, class: "right-panel-links" %>
+      <%= link_to "Followers #{@github_info.followers}", root_path, class: "right-panel-links" %>
+      <%= link_to "Following #{@github_info.following}", root_path, class: "right-panel-links" %>
     </div>
     <hr>
     <input class = "repo-search-bar" type="text" name="" value="Search repositories...">
     <hr>
-      <% @user_repos.repos.each do |repo| %>
+      <% @github_repos.repos.each do |repo| %>
         <div class="repo">
           <div><%= link_to repo.name, "https://github.com/#{current_user.username}/#{repo.name}" , class: "name"%></div>
           <div><%= repo.updated_at %></div>
