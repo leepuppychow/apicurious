@@ -6,6 +6,14 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data("my_token") {ENV["MY_TOKEN"]}
+  config.filter_sensitive_data("client_secret") {ENV["CLIENT_SECRET"]}
+  config.filter_sensitive_data("client_id") {ENV["CLIENT_ID"]}
+end
+
 def stub_omniauth
   # first, set OmniAuth to run in test mode
   OmniAuth.config.test_mode = true
