@@ -46,7 +46,11 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_bot_rails'
+end
 
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
